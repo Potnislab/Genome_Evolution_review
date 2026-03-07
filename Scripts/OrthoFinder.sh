@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/bash
 #SBATCH --job-name=ortho             # job name
 #SBATCH --ntasks=10                  # number of tasks across all nodes
 #SBATCH --partition=general          # name of partition to submit job
