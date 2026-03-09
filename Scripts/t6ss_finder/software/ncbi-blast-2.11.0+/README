@@ -8,3 +8,11 @@ evolutionary relationships between sequences as well as help identify
 members of gene families.
 
 For more information, visit http://blast.ncbi.nlm.nih.gov
+
+
+#IN addition to these files, there are other files inside the bin folder, which can not be added here because of the file size, 
+which are already available publicly for Secret6, those are blast_formatter,legacy_blast.pl, blastdb_aliastool, makeblastdb
+blastdbcheck, 	makembindex, blastdbcmd	,		makeprofiledb, blastn	,		psiblast, blastp	, 			rpsblast, blastx,	rpstblastn, 
+cleanup-blastdb-volumes.py, segmasker, convert2blastmask, tblastn, deltablast	, 		tblastx, dustmasker, 	update_blastdb.pl, get_species_taxids.sh, 
+windowmasker
+
