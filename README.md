@@ -9,17 +9,29 @@ Bacterial plant pathogens can devastate the production of crops used for food, f
 
 1. Reference Genome Selection
 The reference genome species were selected from Agrios 2005 and Young et al. 1996 (Review of Plant Pathology) and then searched in the NCBI database. In order to be selected, multiple assembled genomes for that species or pathovar needed to be present, and the official reference genomes were selected when available. Metadata was primarily gathered from CABI Compendium Datasheets and other literature as needed.
+
 2. Phylogenetic Tree
 A phylogenetic tree for comparative genomic analysis was constructed using OrthoFinder (v2.4.0) (Emms and Kelly 2019), which infers orthogroups from protein sequences using default settings. Orthogroups were identified via DIAMOND-based method. The unrooted gene and species trees are inferred using the DendroBLAST  and  STAG (Species Tree from All Genes) algorithm, respectively. The STAG species tree is rooted with the STRIDE (Species Tree Root Inference from Duplication Events) algorithm by identifying high-confidence gene duplication events. The resulting rooted species tree from OrthoFinder output (SpeciesTree_rooted_node_labels) was employed for subsequent comparative analyses. The tree annotation was added using ggtree and gheatmap functions in R. Genome sizes were determined from genome files using samtools. The presence of Type III secretion system (T3SS) was identified if present in the respective genome used through NCBI genome annotations, otherwise asterisk (*) is added if presence is not consistent across species. 
+
 3. SecReT6
-To find presence of T6SS, the local version of SecReT6 v3 was download to the Alabama Supercomputer Authority HPC and genome assemblies downloaded from ascension number (Supplementary Table 1) from NCBI. The SecReT6 database was used and the pipeline was modified to run on loop and be compatible with multipartite assemblies. Eight genomes returned no result (neither present or absence of T6SS) and are listed as NA.
+To find presence of T6SS, the local version of SecReT6 v3 was download to the Alabama Supercomputer Authority HPC and genome assemblies downloaded from ascension number (Supplementary Table 1) from NCBI. The SecReT6 database was used and the pipeline was modified to run on loop and be compatible with multipartite assemblies. Eight genomes returned no result (neither present or absence of T6SS) and are listed as NA (J. Zhang et al. 2023).
+
 4. Correlation
 Correlation coefficients were calculated in Microsoft Excel using the CORREL function with the metadata Supplementary Table 2. Present was converted to 1 and absent to -1. Vascular and biotroph was converted to 1, non-vascular and necrotroph was converted to  -1, and both or hemibiotroph was converted to 0. 
+
 5. T2SS
 We screened the genomes of plant pathogenic bacteria strains for the presence of various genes involved in breakdowns Carbohydrate Esterases (CEs), Polysaccharide Lyases (PLs), Glycoside Hydrolases (GHs),  GlycosylTransferases (GTs) of carbohydrates, Auxiliary Activities (AAs), and Carbohydrate-Binding Modules (CBMs). Protein sequences (.faa) previously annotated via Prokka (v1.14.5) were subjected to CAZyme domain assignment using the run_dbcan3 tool (https://github.com/linnabrown/run_dbcan3). Searches were performed against the HMMER, DIAMOND, and eCAMI databases using default settings. To ensure high-confidence assignments, final CAZyme domains were retained only if supported by the best hits from at least two of the three databases.
 
 
+
+
 **References**
+1.	Agrios 2005 and Young et al. 1996
+2.	Agrios, G. N. (2005). Plant pathology. Elsevier.
+3.	Emms DM, Kelly S. 2019. OrthoFinder: phylogenetic orthology inference for comparative genomics. Genome Biology. 20(1):238. https://doi.org/10.1186/s13059-019-1832-y
+4.	Young, A., Boyle, T., & Brown, T. (1996). The population genetic consequences of habitat fragmentation for plants. Trends in ecology & evolution, 11(10), 413-418.
+5.	Zhang J et al. 2023. SecReT6 update: a comprehensive resource of bacterial Type VI Secretion Systems. Sci China Life Sci. 66(3):626–634. https://doi.org/10.1007/s11427-022-2172-x
+6.	Zheng, J., Hu, B., Zhang, X., Ge, Q., Yan, Y., Akresi, J., ... & Yin, Y. (2023). dbCAN-seq update: CAZyme gene clusters and substrates in microbiomes. Nucleic Acids Research, 51(D1), D557-D563.
 
 
 
