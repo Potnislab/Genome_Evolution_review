@@ -22,6 +22,10 @@ Correlation coefficients were calculated in Microsoft Excel using the CORREL fun
 5. T2SS
 We screened the genomes of plant pathogenic bacteria strains for the presence of various genes involved in breakdowns Carbohydrate Esterases (CEs), Polysaccharide Lyases (PLs), Glycoside Hydrolases (GHs),  GlycosylTransferases (GTs) of carbohydrates, Auxiliary Activities (AAs), and Carbohydrate-Binding Modules (CBMs). Protein sequences (.faa) previously annotated via Prokka (v1.14.5) were subjected to CAZyme domain assignment using the run_dbcan3 tool (https://github.com/linnabrown/run_dbcan3). Searches were performed against the HMMER, DIAMOND, and eCAMI databases using default settings. To ensure high-confidence assignments, final CAZyme domains were retained only if supported by the best hits from at least two of the three databases.
 
+6. Phylogenetically informed statistics regarding trait association
+All trait data came from metadata table 2. If a trait is present it was converted to 1 and absent to -1. Vascular and biotroph was converted to 1, non-vascular and necrotroph was converted to  -1, and both or hemibiotroph was converted to 0. The R package Phylolm was used to run phylogenetic linear regression, using generalized least squares for continuous variables (Ho & Ane, 2014).  Phyloglm was used for phylogenetic logistic regression, using maximum likelihood for all binary variable comparisons taking into account the strength of the phylogenetic signal in the residual variation. The p-values were then adjusted using BH method. R scripts were written with the assistance of Google Gemini and ChatGPT. 
+
+
 
 
 
